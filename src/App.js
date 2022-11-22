@@ -18,7 +18,9 @@ const App = () => {
     })
     if (Present) {
       setWarning(true);
-
+      setTimeout(() => {
+        setWarning(false)
+      }, 2000)
       return
     }
     setCart([...cart, item])
@@ -34,7 +36,8 @@ const App = () => {
 
 
       <Navbar size={cart.length} setShow={setShow} />
-      {warning && alert("Please Check. Already added in the kart")}
+      {warning && <div className="warning-alert">Already added to the kart</div>}
+
     </React.Fragment>
 
   );
