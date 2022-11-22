@@ -1,0 +1,32 @@
+.Navbar-section {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    background-color: rgb(15, 89, 185);
+    height: 70px;
+    width: 100vw;
+    align-items: center;
+}
+
+.My-shopping {
+    color: yellow;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.fa-shopping-cart {
+    position: relative;
+    margin-top: 9px;
+    color: yellow;
+
+}
+
+.size-of-cart {
+    position: absolute;
+    background-color: white;
+    top: 0;
+    border-radius: 10px;
+    padding: 7px 10px;
+
+}

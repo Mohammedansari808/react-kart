@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar'
+import Amazon from './components/Amazon';
+import Cart from './components/Cart';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [show, setShow] = useState(true);
+  const [cart, setCart] = useState([])
+  const [warning, setWarning] = useState(false)
+  const handleClick = (item) => {
+    let Present = false;
+
+    cart.forEach((Product) => {
+      if (item.id === Product.id) {
+        Present = true
+      }
+    })
+    if (Present) {
+      setWarning(true);
+
+      return
+    }
+    setCart([...cart, item])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+
+    <React.Fragment>
+      {
+        show ? <Amazon handleClick={handleClick} /> : <Cart cart={cart} setCart={setCart} />
+      }
+
+
+      <Navbar size={cart.length} setShow={setShow} />
+      {warning && alert("Please Check. Already added in the kart")}
+    </React.Fragment>
+
   );
+
 }
+
+
+
+
+
+
+
+
+
 
 export default App;
